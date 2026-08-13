@@ -1,16 +1,23 @@
 #EXTM3U
 # BEIN SPORTS SD
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 1 
+
+#EXTINF:-1 tvg-logo="http://51.158.158.30/world_tv_logos/bein-1.png",Bein Sport 1
 http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/24979.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 2
+
+#EXTINF:-1 tvg-logo="http://51.158.158.30/world_tv_logos/bein-2.png",Bein Sport 2
 http://varnishrcdn.com:80/live/braikxamor/g85726/415746.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 3 
+
+#EXTINF:-1 tvg-logo="http://51.158.158.30/world_tv_logos/bein-3.png",Bein Sport 3
 http://varnishrcdn.com:80/live/braikxamor/g85726/415745.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 4
+
+#EXTINF:-1 tvg-logo="http://51.158.158.30/world_tv_logos/bein-4.png",Bein Sport 4
 http://varnishrcdn.com:80/live/braikxamor/g85726/415744.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 5
+
+#EXTINF:-1 tvg-logo="http://51.158.158.30/world_tv_logos/bein-5.png",Bein Sport 5
 http://varnishrcdn.com:80/live/braikxamor/g85726/415743.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 6
+
+#EXTINF:-1 tvg-logo="http://51.158.158.30/world_tv_logos/bein-6.png",Bein Sport 6
 http://varnishrcdn.com:80/live/braikxamor/g85726/415742.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 7
+
+#EXTINF:-1 tvg-logo="http://51.158.158.30/world_tv_logos/bein-7.png",Bein Sport 7
 http://varnishrcdn.com:80/live/braikxamor/g85726/727724.ts
