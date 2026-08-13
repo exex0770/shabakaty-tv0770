@@ -7,23 +7,25 @@ const GROUPS = {
     nameAr: 'بي إن سبورتس SD',
     file: 'bein_sports.m3u'
   },
+
   '2': {
     nameEn: 'ALWAN SPORT SD',
     nameAr: 'ألوان سبورت SD',
     file: 'alwan_sport.m3u'
-  }
+  },
+
   '3': {
-    nameEn: 'alkass',
-    nameAr: 'alkass',
-    file: 'alwan_sport.m3u'
-}
+    nameEn: 'ALKASS SPORTS SD',
+    nameAr: 'الكأس الرياضية SD',
+    file: 'alkass.m3u'
+  }
 };
 
 const LOGO =
   'https://i.imageupload.app/6a082ae964db7774dd08.png';
 
 function readPlaylist(groupId) {
-  const group = GROUPS[groupId];
+  const group = GROUPS[String(groupId)];
 
   if (!group) return [];
 
@@ -32,6 +34,12 @@ function readPlaylist(groupId) {
     'channels',
     group.file
   );
+
+  // إذا الملف غير موجود لا يسبب انهيار API
+  if (!fs.existsSync(filePath)) {
+    console.error('File not found:', filePath);
+    return [];
+  }
 
   const text = fs
     .readFileSync(filePath, 'utf8')
@@ -61,16 +69,21 @@ function readPlaylist(groupId) {
       link = lines[++i];
     }
 
-    const nameMatch = info.match(/,(.*)$/);
-    const logoMatch = info.match(/tvg-logo="([^"]*)"/i);
+    const nameMatch =
+      info.match(/,(.*)$/);
 
-    const name = nameMatch
-      ? nameMatch[1].trim()
-      : `Channel ${channels.length + 1}`;
+    const logoMatch =
+      info.match(/tvg-logo="([^"]*)"/i);
 
-    const logo = logoMatch
-      ? logoMatch[1]
-      : LOGO;
+    const name =
+      nameMatch
+        ? nameMatch[1].trim()
+        : `Channel ${channels.length + 1}`;
+
+    const logo =
+      logoMatch
+        ? logoMatch[1]
+        : LOGO;
 
     channels.push({
       id: String(channels.length + 1),
@@ -157,7 +170,8 @@ module.exports = (req, res) => {
 
     // =========================
     // /api?group=1
-    // /api?id_groups=1
+    // /api?group=2
+    // /api?group=3
     // =========================
 
     if (
@@ -165,7 +179,7 @@ module.exports = (req, res) => {
       groupId
     ) {
 
-      if (!GROUPS[groupId]) {
+      if (!GROUPS[String(groupId)]) {
         return res.status(400).json({
           api_status: 400,
           api_message: 'Invalid group',
@@ -173,14 +187,14 @@ module.exports = (req, res) => {
         });
       }
 
-      const channels =
-        readPlaylist(groupId);
-
       return res
         .status(200)
-        .json(success(channels));
+        .json(
+          success(
+            readPlaylist(groupId)
+          )
+        );
     }
-
 
     // =========================
     // /api
@@ -195,6 +209,7 @@ module.exports = (req, res) => {
         Object.entries(GROUPS).map(
           ([id, group]) => ({
             id: id,
+
             name_en: group.nameEn,
             name_ar: group.nameAr,
 
@@ -210,9 +225,10 @@ module.exports = (req, res) => {
 
       return res
         .status(200)
-        .json(success(groups));
+        .json(
+          success(groups)
+        );
     }
-
 
     // =========================
     // /api/groups
@@ -242,27 +258,40 @@ module.exports = (req, res) => {
 
       return res
         .status(200)
-        .json(success(groups));
+        .json(
+          success(groups)
+        );
     }
-
 
     // =========================
     // /api/channels?group=1
+    // /api/channels?group=2
+    // /api/channels?group=3
     // =========================
 
     if (
       pathname === '/api/channels'
     ) {
 
-      const id = groupId || '1';
+      const id =
+        groupId || '1';
+
+      if (!GROUPS[String(id)]) {
+        return res.status(400).json({
+          api_status: 400,
+          api_message: 'Invalid group',
+          data: []
+        });
+      }
 
       return res
         .status(200)
         .json(
-          success(readPlaylist(id))
+          success(
+            readPlaylist(id)
+          )
         );
     }
-
 
     // =========================
     // /api/channel?id_channel=1
@@ -292,11 +321,12 @@ module.exports = (req, res) => {
         .status(200)
         .json(
           success(
-            channel ? [channel] : []
+            channel
+              ? [channel]
+              : []
           )
         );
     }
-
 
     // =========================
     // Empty endpoints
@@ -312,9 +342,10 @@ module.exports = (req, res) => {
 
       return res
         .status(200)
-        .json(success([]));
+        .json(
+          success([])
+        );
     }
-
 
     return res
       .status(404)
