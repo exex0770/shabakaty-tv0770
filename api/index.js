@@ -12,6 +12,11 @@ const GROUPS = {
     nameAr: 'ألوان سبورت SD',
     file: 'alwan_sport.m3u'
   }
+  '3': {
+    nameEn: 'alkass',
+    nameAr: 'alkass',
+    file: 'alwan_sport.m3u'
+}
 };
 
 const LOGO =
