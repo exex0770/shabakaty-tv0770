@@ -1,0 +1,16 @@
+#EXTM3U
+# BEIN SPORTS SD
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 1 (M) SD
+http://varnishrcdn.com:80/live/braikxamor/g85726/415747.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 2 (M) SD
+http://varnishrcdn.com:80/live/braikxamor/g85726/415746.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 3 (M) SD
+http://varnishrcdn.com:80/live/braikxamor/g85726/415745.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 4 (M) SD
+http://varnishrcdn.com:80/live/braikxamor/g85726/415744.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 5 (M) SD
+http://varnishrcdn.com:80/live/braikxamor/g85726/415743.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 6 (M) SD
+http://varnishrcdn.com:80/live/braikxamor/g85726/415742.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/6a082ae964db7774dd08.png",Bein Sport 7 (M) SD
+http://varnishrcdn.com:80/live/braikxamor/g85726/727724.ts
