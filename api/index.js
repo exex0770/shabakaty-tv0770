@@ -3,20 +3,20 @@ const path = require('path');
 
 const GROUPS = {
   '1': {
-    nameEn: 'BEIN SPORTS SD',
-    nameAr: 'بي إن سبورتس SD',
+    nameEn: 'BEIN SPORTS',
+    nameAr: 'BEIN SPORTS',
     file: 'bein_sports.m3u'
   },
 
   '2': {
-    nameEn: 'ALWAN SPORT SD',
-    nameAr: 'ألوان سبورت SD',
+    nameEn: 'ALWAN SPORT',
+    nameAr: 'ALWAN SPORT',
     file: 'alwan_sport.m3u'
   },
 
   '3': {
-    nameEn: 'ALKASS SPORTS SD',
-    nameAr: 'الكأس الرياضية SD',
+    nameEn: 'ALKASS SPORTS',
+    nameAr: 'ALKASS SPORTS',
     file: 'alkass.m3u'
   }
 };
