@@ -1,16 +1,20 @@
 #EXTM3U
 # BEIN SPORTS SD
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 1 
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/24979.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 1
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13614.ts
 #EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 2
-http://varnishrcdn.com:80/live/braikxamor/g85726/415746.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 3 
-http://varnishrcdn.com:80/live/braikxamor/g85726/415745.ts
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13615.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 3
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13616.ts
 #EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 4
-http://varnishrcdn.com:80/live/braikxamor/g85726/415744.ts
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13617.ts
 #EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 5
-http://varnishrcdn.com:80/live/braikxamor/g85726/415743.ts
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13618.ts
 #EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 6
-http://varnishrcdn.com:80/live/braikxamor/g85726/415742.ts
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13641.ts
 #EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 7
-http://varnishrcdn.com:80/live/braikxamor/g85726/727724.ts
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13642.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 8
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13601.ts
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 9
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13612.ts
