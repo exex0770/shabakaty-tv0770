@@ -21,8 +21,8 @@ const GROUPS = {
   },
 
   '4': {
-    nameEn: 'beIN SPORTS XTRA',
-    nameAr: 'beIN SPORTS XTRA',
+    nameEn: 'beIN SPORTS Shabakaty TV Plus',
+    nameAr: 'beIN SPORTS Shabakaty TV Plus',
     file: 'beIN SPORTS XTRA.m3u'
   }
 };
