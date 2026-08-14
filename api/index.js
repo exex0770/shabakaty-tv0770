@@ -23,7 +23,7 @@ const GROUPS = {
   '4': {
     nameEn: 'beIN SPORTS XTRA',
     nameAr: 'beIN SPORTS XTRA',
-    file: 'bein_sports_xtra.m3u'
+    file: 'beIN SPORTS XTRA.m3u'
   }
 };
 
