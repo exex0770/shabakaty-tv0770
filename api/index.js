@@ -9,21 +9,21 @@ const GROUPS = {
   },
 
   '2': {
+    nameEn: 'beIN SPORT Shabakaty Plus',
+    nameAr: 'beIN SPORT Shabakaty Plus',
+    file: 'beIN SPORTS XTRA.m3u'
+  },
+
+  '3': {
     nameEn: 'ALWAN SPORT',
     nameAr: 'ALWAN SPORT',
     file: 'alwan_sport.m3u'
   },
 
-  '3': {
+  '4': {
     nameEn: 'ALKASS SPORTS',
     nameAr: 'ALKASS SPORTS',
     file: 'alkass.m3u'
-  },
-
-  '4': {
-    nameEn: 'beIN SPORT Shabakaty Plus',
-    nameAr: 'beIN SPORT Shabakaty Plus',
-    file: 'beIN SPORTS XTRA.m3u'
   }
 };
 
@@ -41,7 +41,6 @@ function readPlaylist(groupId) {
     group.file
   );
 
-  // إذا الملف غير موجود لا يسبب انهيار API
   if (!fs.existsSync(filePath)) {
     console.error('File not found:', filePath);
     return [];
@@ -172,7 +171,10 @@ module.exports = (req, res) => {
     'application/json; charset=utf-8'
   );
 
+  // =========================
   // OPTIONS
+  // =========================
+
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -210,6 +212,7 @@ module.exports = (req, res) => {
 
     // =========================
     // /api
+    // يرجع جميع القوائم
     // =========================
 
     if (
