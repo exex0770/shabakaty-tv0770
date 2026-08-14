@@ -18,6 +18,12 @@ const GROUPS = {
     nameEn: 'ALKASS SPORTS',
     nameAr: 'ALKASS SPORTS',
     file: 'alkass.m3u'
+  },
+
+  '4': {
+    nameEn: 'beIN SPORTS XTRA',
+    nameAr: 'beIN SPORTS XTRA',
+    file: 'bein_sports_xtra.m3u'
   }
 };
 
@@ -166,12 +172,18 @@ module.exports = (req, res) => {
     'application/json; charset=utf-8'
   );
 
+  // OPTIONS
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   try {
 
     // =========================
     // /api?group=1
     // /api?group=2
     // /api?group=3
+    // /api?group=4
     // =========================
 
     if (
@@ -267,6 +279,7 @@ module.exports = (req, res) => {
     // /api/channels?group=1
     // /api/channels?group=2
     // /api/channels?group=3
+    // /api/channels?group=4
     // =========================
 
     if (
@@ -346,6 +359,10 @@ module.exports = (req, res) => {
           success([])
         );
     }
+
+    // =========================
+    // Not Found
+    // =========================
 
     return res
       .status(404)
