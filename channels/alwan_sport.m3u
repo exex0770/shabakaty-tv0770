@@ -1,20 +1,20 @@
 #EXTM3U
-# ALWAN SPORT SD
+# ALWAN SPORT
 
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 1 SD
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 1
 http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/402387.ts
 
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 2 SD
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 2
 http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/402384.ts
 
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 3 SD
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 3
 http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/402381.ts
 
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 4 SD
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 4
 http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/402378.ts
 
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 5 SD
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 5
 http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/402375.ts
 
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 6 SD
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/106c89e66e911fe26c3f.png",Alwan Sport 6
 http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/402372.ts
