@@ -21,6 +21,12 @@ const GROUPS = {
   },
 
   '4': {
+    nameEn: 'TOD Shabakaty TV Plus',
+    nameAr: 'TOD Shabakaty TV Plus',
+    file: 'TOD Shabakaty TV Plus.m3u'
+  },
+
+  '5': {
     nameEn: 'ALKASS SPORTS',
     nameAr: 'ALKASS SPORTS',
     file: 'alkass.m3u'
@@ -186,6 +192,7 @@ module.exports = (req, res) => {
     // /api?group=2
     // /api?group=3
     // /api?group=4
+    // /api?group=5
     // =========================
 
     if (
@@ -283,6 +290,7 @@ module.exports = (req, res) => {
     // /api/channels?group=2
     // /api/channels?group=3
     // /api/channels?group=4
+    // /api/channels?group=5
     // =========================
 
     if (
