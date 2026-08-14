@@ -1,0 +1,25 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/b7b70f04170166cdf809.png?utm_source=chatgpt.com" group-title="XTRA",XTRA 1 SD
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/423812.ts
+
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/b7b70f04170166cdf809.png?utm_source=chatgpt.com" group-title="XTRA",XTRA 3 SD
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/423817.ts
+
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/b7b70f04170166cdf809.png?utm_source=chatgpt.com" group-title="XTRA",XTRA 4 SD
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/423820.ts
+
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/b7b70f04170166cdf809.png?utm_source=chatgpt.com" group-title="XTRA",XTRA 5 SD
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/423824.ts
+
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/b7b70f04170166cdf809.png?utm_source=chatgpt.com" group-title="XTRA",XTRA 6 SD
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/423828.ts
+
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/b7b70f04170166cdf809.png?utm_source=chatgpt.com" group-title="XTRA",XTRA 7 SD
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/423832.ts
+
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/b7b70f04170166cdf809.png?utm_source=chatgpt.com" group-title="XTRA",XTRA 8 SD
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/423836.ts
+
+#EXTINF:-1 tvg-logo="https://i.imageupload.app/b7b70f04170166cdf809.png?utm_source=chatgpt.com" group-title="XTRA",XTRA 9 SD
+http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/423840.ts
