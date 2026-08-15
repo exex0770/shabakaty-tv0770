@@ -1,20 +1,20 @@
 #EXTM3U
-# BEIN SPORTS SD
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 1
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13614.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 2
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13615.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 3
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13616.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 4
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13617.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 5
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13618.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 6
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13641.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 7
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13642.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 8
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13601.ts
-#EXTINF:-1 tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",Bein Sport 9
-http://foxbleu-cdn.com/live/e8:aa:cb:c4:bf:92/aMzpeeG/13612.ts
+
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 1 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/527418
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 2 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/235756
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 3 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/162154
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 4 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/367434
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 5 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/99529
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 6 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/65328
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 7 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/813393
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 8 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/219630
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 9 H265 POWER 8M
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/7650
