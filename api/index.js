@@ -257,6 +257,27 @@ function readPlaylist(groupId) {
         ? preferred.url
         : item.fallbackLink;
 
+    /*
+     * Legacy clients only understand link/link2/link3.
+     * Keep those fields populated from the first available
+     * quality streams while the new "qualities" array keeps
+     * every quality for the updated app.
+     */
+    const legacyQualityLinks = [];
+    if (preferred && preferred.url) {
+      legacyQualityLinks.push(preferred.url);
+    }
+
+    for (const q of item.qualities) {
+      if (
+        q.url &&
+        !legacyQualityLinks.includes(q.url) &&
+        legacyQualityLinks.length < 3
+      ) {
+        legacyQualityLinks.push(q.url);
+      }
+    }
+
     channels.push({
 
       id: `${groupId}_${channelNumber}`,
@@ -299,9 +320,16 @@ function readPlaylist(groupId) {
        */
       link: mainLink || '',
 
-      link2: '',
+      link2:
+        legacyQualityLinks[1] ||
+        legacyQualityLinks[0] ||
+        '',
 
-      link3: '',
+      link3:
+        legacyQualityLinks[2] ||
+        legacyQualityLinks[1] ||
+        legacyQualityLinks[0] ||
+        '',
 
       /*
        * NEW:
