@@ -257,27 +257,6 @@ function readPlaylist(groupId) {
         ? preferred.url
         : item.fallbackLink;
 
-    /*
-     * Legacy clients only understand link/link2/link3.
-     * Keep those fields populated from the first available
-     * quality streams while the new "qualities" array keeps
-     * every quality for the updated app.
-     */
-    const legacyQualityLinks = [];
-    if (preferred && preferred.url) {
-      legacyQualityLinks.push(preferred.url);
-    }
-
-    for (const q of item.qualities) {
-      if (
-        q.url &&
-        !legacyQualityLinks.includes(q.url) &&
-        legacyQualityLinks.length < 3
-      ) {
-        legacyQualityLinks.push(q.url);
-      }
-    }
-
     channels.push({
 
       id: `${groupId}_${channelNumber}`,
@@ -320,16 +299,9 @@ function readPlaylist(groupId) {
        */
       link: mainLink || '',
 
-      link2:
-        legacyQualityLinks[1] ||
-        legacyQualityLinks[0] ||
-        '',
+      link2: '',
 
-      link3:
-        legacyQualityLinks[2] ||
-        legacyQualityLinks[1] ||
-        legacyQualityLinks[0] ||
-        '',
+      link3: '',
 
       /*
        * NEW:
@@ -499,6 +471,60 @@ module.exports = (req, res) => {
 
 
   try {
+
+
+    /* ===================================
+       APP COMPATIBILITY ENDPOINTS
+       Retrofit base URL: /api/
+
+       GET /api/groups
+       GET /api/channels?id_groups=1
+       GET /api/channel?id_channel=1_1
+    =================================== */
+
+    if (pathname === '/api/groups') {
+      return res.status(200).json(success(getGroups()));
+    }
+
+    if (pathname === '/api/channels') {
+      if (!groupId || !GROUPS[String(groupId)]) {
+        return res.status(400).json({
+          api_status: 400,
+          api_message: 'Invalid group',
+          data: []
+        });
+      }
+
+      return res.status(200).json(success(readPlaylist(groupId)));
+    }
+
+    if (pathname === '/api/channel') {
+      if (!channelId) {
+        return res.status(400).json({
+          api_status: 400,
+          api_message: 'Invalid channel',
+          data: null
+        });
+      }
+
+      const allGroups = Object.keys(GROUPS);
+      let found = null;
+      for (const id of allGroups) {
+        const list = readPlaylist(id);
+        found = list.find(ch => String(ch.id) === String(channelId));
+        if (found) break;
+      }
+
+      if (!found) {
+        return res.status(404).json({
+          api_status: 404,
+          api_message: 'Channel not found',
+          data: null
+        });
+      }
+
+      return res.status(200).json(success(found));
+    }
 
 
     /* ===================================
