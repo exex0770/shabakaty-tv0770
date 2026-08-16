@@ -1,100 +1,84 @@
+
+
 #EXTM3U
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="55773",beIN SPORTS 1 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61321
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="55773",beIN SPORTS 1 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40199
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="55773",beIN SPORTS 1 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40215
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="55773",beIN SPORTS 1 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10421
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="55773",beIN SPORTS 1 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78395
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 1 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/527418
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 1 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/527418
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 1 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/527418
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 1 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/527418
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="4146",beIN SPORTS 2 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61322
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="4146",beIN SPORTS 2 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40200
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="4146",beIN SPORTS 2 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40216
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="4146",beIN SPORTS 2 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10422
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="4146",beIN SPORTS 2 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78394
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 2 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/235756
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 2 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/235756
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 2 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/235756
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 2 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/235756
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="3118",beIN SPORTS 3 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61324
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="3118",beIN SPORTS 3 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/48477
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="3118",beIN SPORTS 3 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40218
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="3118",beIN SPORTS 3 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10424
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="3118",beIN SPORTS 3 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78402
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 3 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/162154
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 3 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/162154
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 3 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/162154
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 3 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/162154
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369764",beIN SPORTS 4 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61325
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369764",beIN SPORTS 4 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/48478
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369764",beIN SPORTS 4 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40219
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369764",beIN SPORTS 4 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10425
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369764",beIN SPORTS 4 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78401
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 4 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/367434
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 4 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/367434
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 4 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/367434
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 4 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/367434
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369843",beIN SPORTS 5 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61326
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369843",beIN SPORTS 5 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/48479
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369843",beIN SPORTS 5 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40220
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369843",beIN SPORTS 5 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10426
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="369843",beIN SPORTS 5 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78400
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 5 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/99529
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 5 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/99529
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 5 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/99529
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 5 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/99529
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="410411",beIN SPORTS 6 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61327
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="410411",beIN SPORTS 6 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/48480
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="410411",beIN SPORTS 6 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40221
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="410411",beIN SPORTS 6 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10427
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="410411",beIN SPORTS 6 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78399
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 6 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/65328
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 6 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/65328
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 6 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/65328
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 6 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/65328
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 7 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61328
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 7 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/48481
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 7 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40222
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 7 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10428
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 7 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78398
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 7 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/813393
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 7 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/813393
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 7 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/813393
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 7 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/813393
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 8 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61329
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 8 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/48482
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 8 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40223
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 8 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10429
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 8 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78397
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 8 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/219630
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 8 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/219630
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 8 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/219630
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 8 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/219630
 
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 9 [LOW]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/61330
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 9 [SD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/48483
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 9 [HD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/40224
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 9 [FHD]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/10430
-#EXTINF:-1 group-title="beIN SPORTS" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png" tvg-id="2580",beIN SPORTS 9 [4K]
-http://maveniptv.net/3jP3T7wPwi/rrTKmPtMAt/78396
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 9 H265 360P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/7650
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 9 H265 480P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/7650
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 9 H265 720P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/7650
+#EXTINF:-1 group-title="BEIN SPORT POWER 8M" tvg-logo="https://i.imageupload.app/78b2a36f0e0b616c9db6.png",BEIN SPORT 9 H265 1080P
+http://so.ta2al.us/MH12ARBMH12/MH12ARBMH12/7650
