@@ -45,7 +45,9 @@ function readPlaylist(groupId) {
 
   const group = GROUPS[String(groupId)];
 
-  if (!group) return [];
+  if (!group) {
+    return [];
+  }
 
   const filePath = path.join(
     process.cwd(),
@@ -53,112 +55,124 @@ function readPlaylist(groupId) {
     group.file
   );
 
+  console.log('Reading group:', groupId);
+  console.log('File:', group.file);
+  console.log('Path:', filePath);
+
   if (!fs.existsSync(filePath)) {
-    console.error('M3U FILE NOT FOUND:', filePath);
+
+    console.error(
+      'M3U FILE NOT FOUND:',
+      filePath
+    );
+
     return [];
   }
 
   let text;
 
   try {
-    text = fs.readFileSync(filePath, 'utf8');
+
+    text = fs.readFileSync(
+      filePath,
+      'utf8'
+    );
+
   } catch (error) {
-    console.error('READ FILE ERROR:', error);
+
+    console.error(
+      'READ FILE ERROR:',
+      error
+    );
+
     return [];
   }
 
+
+  // إزالة BOM
   text = text.replace(/^\uFEFF/, '');
+
 
   const lines = text
     .split(/\r?\n/)
     .map(line => line.trim())
-    .filter(Boolean);
+    .filter(line => line.length > 0);
 
-  /*
-   * Supported quality labels.
-   * The API only creates a quality when that quality
-   * actually exists in the M3U entry.
-   */
-  const QUALITY_ORDER = [
-    'LOW',
-    'SD',
-    'HD',
-    'FHD',
-    'UHD',
-    '4K',
-    'HDR'
-  ];
 
-  const QUALITY_REGEX =
-    /\s*\[\s*(LOW|SD|HD|FHD|UHD|4K|HDR)\s*\]\s*$/i;
+  const channels = [];
 
-  /*
-   * Remove a quality suffix from a channel name.
-   * Example:
-   *   "beIN SPORTS 1 [HD]" -> "beIN SPORTS 1"
-   */
-  function parseQuality(rawName) {
-    const name = String(rawName || '').trim();
-    const match = name.match(QUALITY_REGEX);
+  for (
+    let i = 0;
+    i < lines.length;
+    i++
+  ) {
 
-    if (!match) {
-      return {
-        baseName: name,
-        quality: null
-      };
-    }
+    const line = lines[i];
 
-    return {
-      baseName: name
-        .replace(QUALITY_REGEX, '')
-        .trim(),
-      quality: match[1].toUpperCase()
-    };
-  }
-
-  /*
-   * Keep channels separate by their real base name.
-   * We intentionally do NOT use tvg-id as the grouping key,
-   * because different channels can share the same tvg-id.
-   */
-  const grouped = new Map();
-
-  for (let i = 0; i < lines.length; i++) {
-
-    const info = lines[i];
-
-    if (!info.toUpperCase().startsWith('#EXTINF')) {
+    if (
+      !line.toUpperCase().startsWith('#EXTINF')
+    ) {
       continue;
     }
 
-    const nameMatch = info.match(/,(.*)$/);
 
-    const rawName =
-      nameMatch && nameMatch[1]
+    const info = line;
+
+
+    /* =========================
+       CHANNEL NAME
+    ========================= */
+
+    const nameMatch =
+      info.match(/,(.*)$/);
+
+    let name =
+      nameMatch
         ? nameMatch[1].trim()
-        : `Channel ${grouped.size + 1}`;
+        : `Channel ${channels.length + 1}`;
 
-    const parsed = parseQuality(rawName);
 
-    const baseName =
-      parsed.baseName ||
-      `Channel ${grouped.size + 1}`;
+    if (!name) {
+      name =
+        `Channel ${channels.length + 1}`;
+    }
+
+
+    /* =========================
+       LOGO
+    ========================= */
 
     const logoMatch =
-      info.match(/tvg-logo\s*=\s*"([^"]*)"/i);
+      info.match(
+        /tvg-logo\s*=\s*"([^"]*)"/i
+      );
 
     const channelLogo =
-      logoMatch && logoMatch[1]
+      logoMatch &&
+      logoMatch[1]
         ? logoMatch[1].trim()
         : LOGO;
 
+
+    /* =========================
+       GROUP TITLE
+    ========================= */
+
     const groupTitleMatch =
-      info.match(/group-title\s*=\s*"([^"]*)"/i);
+      info.match(
+        /group-title\s*=\s*"([^"]*)"/i
+      );
 
     const m3uGroupName =
-      groupTitleMatch && groupTitleMatch[1]
+      groupTitleMatch &&
+      groupTitleMatch[1]
         ? groupTitleMatch[1].trim()
         : group.nameEn;
+
+
+    /* =========================
+       STREAM URL
+    ========================= */
 
     let link = '';
 
@@ -166,170 +180,157 @@ function readPlaylist(groupId) {
       lines[i + 1] &&
       !lines[i + 1].startsWith('#')
     ) {
+
       link = lines[i + 1].trim();
+
       i++;
     }
 
-    if (!link) continue;
 
-    /*
-     * Use a normalized name as the grouping key.
-     * This makes:
-     *   beIN SPORTS 1 [LOW]
-     *   beIN SPORTS 1 [SD]
-     *   beIN SPORTS 1 [HD]
-     * all belong to one channel.
-     */
-    const key = baseName
-      .replace(/\s+/g, ' ')
-      .trim()
-      .toLowerCase();
+    /* =========================
+       IGNORE EMPTY LINKS
+    ========================= */
 
-    if (!grouped.has(key)) {
-      grouped.set(key, {
-        baseName,
-        logo: channelLogo,
-        groupTitle: m3uGroupName,
-        qualities: [],
-        fallbackLink: link
-      });
+    if (!link) {
+
+      console.warn(
+        'Channel without stream:',
+        name
+      );
+
     }
 
-    const item = grouped.get(key);
 
-    if (!item.logo && channelLogo) {
-      item.logo = channelLogo;
-    }
+    /* =========================
+       UNIQUE CHANNEL ID
+    ========================= */
 
-    /*
-     * If a quality is present, store it as a quality option.
-     * If no quality suffix exists, keep it as the fallback stream.
-     */
-    if (parsed.quality) {
+    const channelNumber =
+      channels.length + 1;
 
-      const alreadyExists =
-        item.qualities.some(
-          q => q.name === parsed.quality
-        );
+    const channelId =
+      `${groupId}_${channelNumber}`;
 
-      if (!alreadyExists) {
-        item.qualities.push({
-          name: parsed.quality,
-          url: link
-        });
-      }
 
-    } else if (!item.fallbackLink) {
-      item.fallbackLink = link;
-    }
-  }
-
-  const channels = [];
-  let channelNumber = 0;
-
-  for (const item of grouped.values()) {
-
-    channelNumber++;
-
-    /*
-     * Stable quality order.
-     */
-    item.qualities.sort((a, b) => {
-      const ai = QUALITY_ORDER.indexOf(a.name);
-      const bi = QUALITY_ORDER.indexOf(b.name);
-
-      return (ai === -1 ? 999 : ai) -
-             (bi === -1 ? 999 : bi);
-    });
-
-    /*
-     * Backward compatibility:
-     * old clients still read "link".
-     * Prefer HD, then SD, then the first available quality.
-     */
-    const preferred =
-      item.qualities.find(q => q.name === 'HD') ||
-      item.qualities.find(q => q.name === 'SD') ||
-      item.qualities[0];
-
-    const mainLink =
-      preferred
-        ? preferred.url
-        : item.fallbackLink;
+    /* =========================
+       CHANNEL OBJECT
+    ========================= */
 
     channels.push({
 
-      id: `${groupId}_${channelNumber}`,
+      id: channelId,
 
       id_sliders: null,
 
       id_custom_list: null,
 
-      name_en: item.baseName,
 
-      name_ar: item.baseName,
+      name_en: name,
 
-      id_groups: String(groupId),
+      name_ar: name,
 
-      groups_name_en: group.nameEn,
 
-      groups_name_ar: group.nameAr,
+      id_groups:
+        String(groupId),
 
-      groups_main_icon: LOGO,
 
-      groups_sub_icon: LOGO,
+      groups_name_en:
+        group.nameEn,
 
-      groups_logo: LOGO,
+      groups_name_ar:
+        group.nameAr,
 
-      groups_mobile_logo: LOGO,
+
+      groups_main_icon:
+        LOGO,
+
+      groups_sub_icon:
+        LOGO,
+
+      groups_logo:
+        LOGO,
+
+      groups_mobile_logo:
+        LOGO,
+
 
       groups_link: '',
 
-      logo: item.logo || LOGO,
 
-      mobile_logo: item.logo || LOGO,
+      logo:
+        channelLogo,
 
-      real_channel_logo: item.logo || LOGO,
+      mobile_logo:
+        channelLogo,
 
-      logo_name: item.baseName,
+      real_channel_logo:
+        channelLogo,
 
-      /*
-       * Existing field kept for compatibility.
-       * It points to the preferred quality.
-       */
-      link: mainLink || '',
 
-      link2: '',
+      logo_name:
+        name,
 
-      link3: '',
 
-      /*
-       * NEW:
-       * All actual quality streams belonging to this channel.
-       */
-      qualities: item.qualities,
+      // =========================================
+      // MULTI QUALITY STREAMS
+      // =========================================
+      // يتم تكرار نفس الرابط تلقائياً في البداية.
+      // link  = 1080p / FHD
+      // link2 = 720p  / HD
+      // link3 = 480p  / SD
+      link:
+        link,
 
-      /*
-       * Helpful for the app/UI.
-       */
-      available_qualities:
-        item.qualities.map(q => q.name),
+      link2:
+        link,
 
-      default_quality:
-        preferred
-          ? preferred.name
-          : null,
+      link3:
+        link,
 
-      group_title: item.groupTitle
+      quality_1080p:
+        link,
+
+      quality_720p:
+        link,
+
+      quality_480p:
+        link,
+
+      qualities: [
+        {
+          quality: '1080p',
+          label: 'FHD',
+          link: link
+        },
+        {
+          quality: '720p',
+          label: 'HD',
+          link: link
+        },
+        {
+          quality: '480p',
+          label: 'SD',
+          link: link
+        }
+      ],
+
+
+      // إضافية
+      group_title:
+        m3uGroupName
+
     });
   }
 
+
   console.log(
-    `Group ${groupId} loaded: ${channels.length} grouped channels`
+    `Group ${groupId} loaded: ${channels.length} channels`
   );
+
 
   return channels;
 }
+
 
 /* =========================================
    SUCCESS RESPONSE
@@ -471,60 +472,6 @@ module.exports = (req, res) => {
 
 
   try {
-
-
-    /* ===================================
-       APP COMPATIBILITY ENDPOINTS
-       Retrofit base URL: /api/
-
-       GET /api/groups
-       GET /api/channels?id_groups=1
-       GET /api/channel?id_channel=1_1
-    =================================== */
-
-    if (pathname === '/api/groups') {
-      return res.status(200).json(success(getGroups()));
-    }
-
-    if (pathname === '/api/channels') {
-      if (!groupId || !GROUPS[String(groupId)]) {
-        return res.status(400).json({
-          api_status: 400,
-          api_message: 'Invalid group',
-          data: []
-        });
-      }
-
-      return res.status(200).json(success(readPlaylist(groupId)));
-    }
-
-    if (pathname === '/api/channel') {
-      if (!channelId) {
-        return res.status(400).json({
-          api_status: 400,
-          api_message: 'Invalid channel',
-          data: null
-        });
-      }
-
-      const allGroups = Object.keys(GROUPS);
-      let found = null;
-      for (const id of allGroups) {
-        const list = readPlaylist(id);
-        found = list.find(ch => String(ch.id) === String(channelId));
-        if (found) break;
-      }
-
-      if (!found) {
-        return res.status(404).json({
-          api_status: 404,
-          api_message: 'Channel not found',
-          data: null
-        });
-      }
-
-      return res.status(200).json(success(found));
-    }
 
 
     /* ===================================
@@ -806,3 +753,4 @@ module.exports = (req, res) => {
   }
 
 };
+
