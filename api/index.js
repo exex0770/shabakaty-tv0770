@@ -475,26 +475,21 @@ function readPlaylist(groupId) {
       channel.qualities[0];
 
 
-    const link =
-      mainQuality
-        ? mainQuality.link
-        : '';
+    function qualityLink(item) {
+      if (!item || !item.link) return '';
+      const separator = item.link.includes('#') ? '&' : '#';
+      return `${item.link}${separator}quality=${encodeURIComponent(item.quality || 'AUTO')}`;
+    }
+
+    const link = qualityLink(mainQuality);
 
 
     /* =========================
-       OLD COMPATIBILITY LINKS
+       COMPATIBILITY LINKS WITH QUALITY
     ========================= */
 
-    const link2 =
-      channel.qualities[1]
-        ? channel.qualities[1].link
-        : '';
-
-
-    const link3 =
-      channel.qualities[2]
-        ? channel.qualities[2].link
-        : '';
+    const link2 = qualityLink(channel.qualities[1]);
+    const link3 = qualityLink(channel.qualities[2]);
 
 
     /* =========================
