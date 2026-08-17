@@ -475,21 +475,26 @@ function readPlaylist(groupId) {
       channel.qualities[0];
 
 
-    function qualityLink(item) {
-      if (!item || !item.link) return '';
-      const separator = item.link.includes('#') ? '&' : '#';
-      return `${item.link}${separator}quality=${encodeURIComponent(item.quality || 'AUTO')}`;
-    }
-
-    const link = qualityLink(mainQuality);
+    const link =
+      mainQuality
+        ? mainQuality.link
+        : '';
 
 
     /* =========================
-       COMPATIBILITY LINKS WITH QUALITY
+       OLD COMPATIBILITY LINKS
     ========================= */
 
-    const link2 = qualityLink(channel.qualities[1]);
-    const link3 = qualityLink(channel.qualities[2]);
+    const link2 =
+      channel.qualities[1]
+        ? channel.qualities[1].link
+        : '';
+
+
+    const link3 =
+      channel.qualities[2]
+        ? channel.qualities[2].link
+        : '';
 
 
     /* =========================
