@@ -13,7 +13,7 @@ const GROUPS = {
     nameEn: 'BEIN SPORTS',
     nameAr: 'BEIN SPORTS',
     file: 'BEIN SPORTS.m3u',
-    order: 2
+    order: 5
   },
 
   '3': {
@@ -27,14 +27,14 @@ const GROUPS = {
     nameEn: 'BEIN SPORTS MOOM',
     nameAr: 'BEIN SPORTS MOOM',
     file: 'BEIN SPORTS MOOM.m3u',
-    order: 4
+    order: 2
   },
 
   '5': {
     nameEn: 'FADJR MOOM SPORT',
     nameAr: 'FADJR MOOM SPORT',
     file: 'FADJR MOOM SPORT.m3u',
-    order: 5
+    order: 4
   },
 
   '6': {
