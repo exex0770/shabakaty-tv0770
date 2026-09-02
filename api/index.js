@@ -5,37 +5,43 @@ const GROUPS = {
   '1': {
     nameEn: 'TOD BEIN SPORTS',
     nameAr: 'TOD BEIN SPORTS',
-    file: 'TOD BEIN SPORTS.m3u'
+    file: 'TOD BEIN SPORTS.m3u',
+    order: 1
   },
 
   '2': {
     nameEn: 'BEIN SPORTS',
     nameAr: 'BEIN SPORTS',
-    file: 'BEIN SPORTS.m3u'
+    file: 'BEIN SPORTS.m3u',
+    order: 2
   },
 
   '3': {
     nameEn: 'ALWAN MOOM SPORT',
     nameAr: 'ALWAN MOOM SPORT',
-    file: 'ALWAN MOOM SPORT.m3u'
+    file: 'ALWAN MOOM SPORT.m3u',
+    order: 3
   },
 
   '4': {
     nameEn: 'BEIN SPORTS MOOM',
     nameAr: 'BEIN SPORTS MOOM',
-    file: 'BEIN SPORTS MOOM.m3u'
+    file: 'BEIN SPORTS MOOM.m3u',
+    order: 4
   },
 
   '5': {
     nameEn: 'FADJR MOOM SPORT',
     nameAr: 'FADJR MOOM SPORT',
-    file: 'FADJR MOOM SPORT.m3u'
+    file: 'FADJR MOOM SPORT.m3u',
+    order: 5
   },
 
   '6': {
     nameEn: 'ALKASS SPORTS',
     nameAr: 'ALKASS SPORTS',
-    file: 'alkass.m3u'
+    file: 'alkass.m3u',
+    order: 6
   }
 };
 
@@ -1012,7 +1018,11 @@ function getGroups() {
 
   return Object.entries(
     GROUPS
-  ).map(
+  )
+    .sort(
+      ([, a], [, b]) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER)
+    )
+    .map(
     ([id, group]) => {
 
       return {
@@ -1310,7 +1320,11 @@ module.exports = (
 
       for (
         const id
-        of Object.keys(GROUPS)
+        of Object.entries(GROUPS)
+          .sort(
+            ([, a], [, b]) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER)
+          )
+          .map(([id]) => id)
       ) {
 
         const channels =
