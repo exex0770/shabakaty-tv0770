@@ -1,14 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-
-/* =========================================================
-   GROUPS
-   الترتيب النهائي + IDs الجديدة
-========================================================= */
-
 const GROUPS = {
-
   '1': {
     nameEn: 'TOD BEIN SPORTS',
     nameAr: 'TOD BEIN SPORTS',
@@ -44,23 +37,7 @@ const GROUPS = {
     nameAr: 'ALKASS SPORTS',
     file: 'alkass.m3u'
   }
-
 };
-
-
-/* =========================================================
-   FIXED GROUP ORDER
-========================================================= */
-
-const GROUP_ORDER = [
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6'
-];
-
 
 const LOGO =
   'https://i.imageupload.app/6a082ae964db7774dd08.png';
@@ -71,22 +48,15 @@ const LOGO =
 ========================================================= */
 
 function getAttribute(line, attribute) {
-
-  if (!line) {
-    return '';
-  }
+  if (!line) return '';
 
   const regex = new RegExp(
-    attribute.replace(
-      /[.*+?^${}()|[\]\\]/g,
-      '\\$&'
-    ) +
+    attribute.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
     '\\s*=\\s*"([^"]*)"',
     'i'
   );
 
-  const match =
-    line.match(regex);
+  const match = line.match(regex);
 
   return match && match[1]
     ? match[1].trim()
@@ -104,26 +74,15 @@ function normalizeQuality(value) {
     return '';
   }
 
-  let q =
-    String(value)
-      .trim()
-      .toUpperCase();
+  let q = String(value)
+    .trim()
+    .toUpperCase();
 
-  q =
-    q.replace(
-      /\s+/g,
-      ' '
-    );
+  q = q.replace(/\s+/g, ' ');
 
-
-  if (
-    q === 'LON' ||
-    q === 'LONG' ||
-    q === 'LOW'
-  ) {
+  if (q === 'LON' || q === 'LONG' || q === 'LOW') {
     return 'LON';
   }
-
 
   if (q === 'SD') {
     return 'SD';
@@ -149,19 +108,11 @@ function normalizeQuality(value) {
     return '8K';
   }
 
-
-  const numeric =
-    q.match(
-      /(\d{3,5})\s*P?/
-    );
-
+  const numeric = q.match(/(\d{3,5})\s*P?/);
 
   if (numeric) {
-
     return `${numeric[1]}P`;
-
   }
-
 
   return q;
 }
@@ -177,57 +128,27 @@ function extractQualityFromName(name) {
     return '';
   }
 
-  const text =
-    name.trim();
+  const text = name.trim();
 
-
-  /*
-     LON
-  */
-
-  if (
-    /\bLON\b/i.test(text)
-  ) {
-
+  if (/\bLON\b/i.test(text)) {
     return 'LON';
-
   }
 
-
-  /*
-     Numeric quality
-  */
-
-  const numeric =
-    text.match(
-      /\b(144|240|244|360|480|576|720|900|1080|1440|2160|2880|4320)P?\b/i
-    );
-
+  const numeric = text.match(
+    /\b(144|240|244|360|480|576|720|900|1080|1440|2160|2880|4320)P?\b/i
+  );
 
   if (numeric) {
-
     return `${numeric[1]}P`;
-
   }
 
-
-  /*
-     Text quality
-  */
-
-  const textQuality =
-    text.match(
-      /\b(SD|HD|FHD|UHD|4K|8K|HDR10\+?|HDR|DV)\b/i
-    );
-
+  const textQuality = text.match(
+    /\b(SD|HD|FHD|UHD|4K|8K|HDR10\+?|HDR|DV)\b/i
+  );
 
   if (textQuality) {
-
-    return textQuality[1]
-      .toUpperCase();
-
+    return textQuality[1].toUpperCase();
   }
-
 
   return '';
 }
@@ -235,52 +156,26 @@ function extractQualityFromName(name) {
 
 /* =========================================================
    EXTRACT QUALITY
-   PRIORITY:
-   1 tvg-quality
-   2 tvg-name
-   3 channel name
 ========================================================= */
 
-function extractQuality(
-  info,
-  originalName
-) {
+function extractQuality(info, originalName) {
 
   const tvgQuality =
-    getAttribute(
-      info,
-      'tvg-quality'
-    );
-
+    getAttribute(info, 'tvg-quality');
 
   if (tvgQuality) {
-
-    return normalizeQuality(
-      tvgQuality
-    );
-
+    return normalizeQuality(tvgQuality);
   }
-
 
   const tvgName =
-    getAttribute(
-      info,
-      'tvg-name'
-    );
-
+    getAttribute(info, 'tvg-name');
 
   const fromTvgName =
-    extractQualityFromName(
-      tvgName
-    );
-
+    extractQualityFromName(tvgName);
 
   if (fromTvgName) {
-
     return fromTvgName;
-
   }
-
 
   return extractQualityFromName(
     originalName
@@ -301,21 +196,11 @@ function cleanChannelName(name) {
   let result =
     String(name).trim();
 
-
-  /*
-     Remove LON
-  */
-
   result =
     result.replace(
       /\s+\bLON\b\s*$/i,
       ''
     );
-
-
-  /*
-     Remove text quality
-  */
 
   result =
     result.replace(
@@ -323,17 +208,11 @@ function cleanChannelName(name) {
       ''
     );
 
-
-  /*
-     Remove numeric quality
-  */
-
   result =
     result.replace(
       /\s+\b(?:144|240|244|360|480|576|720|900|1080|1440|2160|2880|4320)P?\b\s*$/i,
       ''
     );
-
 
   return result.trim();
 }
@@ -349,73 +228,47 @@ function qualityPriority(quality) {
     return 999999;
   }
 
-
   const q =
-    normalizeQuality(
-      quality
-    );
-
+    normalizeQuality(quality);
 
   /*
-     LON ALWAYS FIRST
+   LON أولاً
   */
 
   if (q === 'LON') {
     return 0;
   }
 
-
   /*
-     Special qualities
+   الترتيب:
+   LON
+   244P / 240P
+   360P
+   ثم باقي الدقات
   */
 
   const special = {
-
     '244P': 10,
     '240P': 10,
     '360P': 20
-
   };
 
-
-  if (
-    special[q] !== undefined
-  ) {
-
+  if (special[q] !== undefined) {
     return special[q];
-
   }
 
-
-  /*
-     Numeric quality
-  */
-
   const numeric =
-    q.match(
-      /^(\d+)P$/
-    );
-
+    q.match(/^(\d+)P$/);
 
   if (numeric) {
-
-    return (
-      100 +
+    return 100 +
       parseInt(
         numeric[1],
         10
-      )
-    );
-
+      );
   }
 
-
-  /*
-     Text qualities
-  */
-
   const text = {
-
     'SD': 500,
     'HD': 600,
     'FHD': 700,
@@ -426,18 +279,11 @@ function qualityPriority(quality) {
     'HDR10+': 900,
     'DV': 900,
     '8K': 1000
-
   };
 
-
-  if (
-    text[q] !== undefined
-  ) {
-
+  if (text[q] !== undefined) {
     return text[q];
-
   }
-
 
   return 999999;
 }
@@ -447,9 +293,7 @@ function qualityPriority(quality) {
    SORT QUALITIES
 ========================================================= */
 
-function sortQualities(
-  qualities
-) {
+function sortQualities(qualities) {
 
   return qualities.sort(
     (a, b) => {
@@ -464,27 +308,19 @@ function sortQualities(
           b.quality
         );
 
-
       if (pa !== pb) {
-
         return pa - pb;
-
       }
 
-
-      return String(
-        a.quality
-      ).localeCompare(
-        String(
-          b.quality
-        ),
-        undefined,
-        {
-          numeric: true,
-          sensitivity: 'base'
-        }
-      );
-
+      return String(a.quality)
+        .localeCompare(
+          String(b.quality),
+          undefined,
+          {
+            numeric: true,
+            sensitivity: 'base'
+          }
+        );
     }
   );
 }
@@ -494,24 +330,14 @@ function sortQualities(
    READ PLAYLIST
 ========================================================= */
 
-function readPlaylist(
-  groupId
-) {
-
-  const id =
-    String(groupId);
-
+function readPlaylist(groupId) {
 
   const group =
-    GROUPS[id];
-
+    GROUPS[String(groupId)];
 
   if (!group) {
-
     return [];
-
   }
-
 
   const filePath =
     path.join(
@@ -520,18 +346,17 @@ function readPlaylist(
       group.file
     );
 
-
   console.log(
     '===================================='
   );
 
   console.log(
     'Reading group:',
-    id
+    groupId
   );
 
   console.log(
-    'Group:',
+    'Group name:',
     group.nameEn
   );
 
@@ -550,15 +375,7 @@ function readPlaylist(
   );
 
 
-  /*
-     File not found
-  */
-
-  if (
-    !fs.existsSync(
-      filePath
-    )
-  ) {
+  if (!fs.existsSync(filePath)) {
 
     console.error(
       'M3U FILE NOT FOUND:',
@@ -566,12 +383,10 @@ function readPlaylist(
     );
 
     return [];
-
   }
 
 
   let text;
-
 
   try {
 
@@ -589,12 +404,11 @@ function readPlaylist(
     );
 
     return [];
-
   }
 
 
   /*
-     Remove BOM
+   Remove BOM
   */
 
   text =
@@ -605,7 +419,7 @@ function readPlaylist(
 
 
   /*
-     Split lines
+   Split lines
   */
 
   const lines =
@@ -618,18 +432,17 @@ function readPlaylist(
 
 
   /*
-     TVG-ID grouping
+   Group by TVG-ID
   */
 
   const channelMap =
     new Map();
 
-
   let autoId = 0;
 
 
   /*
-     Parse M3U
+   Parse M3U
   */
 
   for (
@@ -641,7 +454,6 @@ function readPlaylist(
     const line =
       lines[i];
 
-
     if (!line) {
       continue;
     }
@@ -650,13 +462,9 @@ function readPlaylist(
     if (
       !line
         .toUpperCase()
-        .startsWith(
-          '#EXTINF'
-        )
+        .startsWith('#EXTINF')
     ) {
-
       continue;
-
     }
 
 
@@ -665,14 +473,13 @@ function readPlaylist(
 
 
     /*
-       Channel name
+     Channel name
     */
 
     const nameMatch =
       info.match(
         /,(.*)$/
       );
-
 
     let originalName =
       nameMatch
@@ -684,12 +491,11 @@ function readPlaylist(
 
       originalName =
         `Channel ${++autoId}`;
-
     }
 
 
     /*
-       TVG-ID
+     TVG-ID
     */
 
     let tvgId =
@@ -700,7 +506,7 @@ function readPlaylist(
 
 
     /*
-       Clean name
+     Clean name
     */
 
     const cleanedName =
@@ -710,8 +516,8 @@ function readPlaylist(
 
 
     /*
-       Generate TVG-ID
-       if missing
+     Generate TVG-ID
+     if missing
     */
 
     if (!tvgId) {
@@ -723,12 +529,11 @@ function readPlaylist(
             /\s+/g,
             '_'
           );
-
     }
 
 
     /*
-       Quality
+     Quality
     */
 
     const quality =
@@ -743,7 +548,7 @@ function readPlaylist(
 
 
     /*
-       Logo
+     Logo
     */
 
     const logo =
@@ -754,7 +559,7 @@ function readPlaylist(
 
 
     /*
-       M3U group title
+     M3U Group
     */
 
     const m3uGroupName =
@@ -765,11 +570,10 @@ function readPlaylist(
 
 
     /*
-       Stream URL
+     Stream URL
     */
 
     let link = '';
-
 
     let j =
       i + 1;
@@ -781,7 +585,6 @@ function readPlaylist(
     ) {
 
       j++;
-
     }
 
 
@@ -794,12 +597,11 @@ function readPlaylist(
         lines[j].trim();
 
       i = j;
-
     }
 
 
     /*
-       No stream
+     No URL
     */
 
     if (!link) {
@@ -810,12 +612,11 @@ function readPlaylist(
       );
 
       continue;
-
     }
 
 
     /*
-       TVG-ID is PRIMARY KEY
+     TVG-ID PRIMARY KEY
     */
 
     const mapKey =
@@ -825,13 +626,11 @@ function readPlaylist(
 
 
     /*
-       Create channel
+     Create channel
     */
 
     if (
-      !channelMap.has(
-        mapKey
-      )
+      !channelMap.has(mapKey)
     ) {
 
       channelMap.set(
@@ -863,15 +662,13 @@ function readPlaylist(
 
           qualities:
             []
-
         }
       );
-
     }
 
 
     /*
-       Existing channel
+     Existing channel
     */
 
     const channel =
@@ -881,7 +678,7 @@ function readPlaylist(
 
 
     /*
-       Update name
+     Update empty name
     */
 
     if (
@@ -891,12 +688,11 @@ function readPlaylist(
 
       channel.name =
         cleanedName;
-
     }
 
 
     /*
-       Keep valid logo
+     Keep first valid logo
     */
 
     if (
@@ -915,23 +711,20 @@ function readPlaylist(
 
       channel.real_channel_logo =
         logo;
-
     }
 
 
     /*
-       Prevent duplicate quality
+     Prevent duplicate quality
     */
 
     const alreadyExists =
       channel.qualities.some(
         q =>
-          String(
-            q.quality
-          ).toUpperCase() ===
-          String(
-            finalQuality
-          ).toUpperCase()
+          String(q.quality)
+            .toUpperCase() ===
+          String(finalQuality)
+            .toUpperCase()
       );
 
 
@@ -950,20 +743,16 @@ function readPlaylist(
 
         streamUrl:
           link
-
       });
-
     }
-
   }
 
 
   /*
-     Convert Map to Array
+   Convert Map
   */
 
   const channels = [];
-
 
   let channelNumber = 1;
 
@@ -974,7 +763,7 @@ function readPlaylist(
   ) {
 
     /*
-       Sort qualities
+     Sort qualities
     */
 
     sortQualities(
@@ -983,7 +772,7 @@ function readPlaylist(
 
 
     /*
-       Main stream
+     Main quality
     */
 
     const mainQuality =
@@ -997,7 +786,7 @@ function readPlaylist(
 
 
     /*
-       Second stream
+     Second stream
     */
 
     const link2 =
@@ -1007,7 +796,7 @@ function readPlaylist(
 
 
     /*
-       Third stream
+     Third stream
     */
 
     const link3 =
@@ -1017,17 +806,15 @@ function readPlaylist(
 
 
     /*
-       IMPORTANT:
-       Channel ID contains
-       NEW group ID
+     Channel ID
     */
 
     const channelId =
-      `${id}_${channelNumber}`;
+      `${groupId}_${channelNumber}`;
 
 
     /*
-       Final channel
+     Final channel
     */
 
     channels.push({
@@ -1047,29 +834,14 @@ function readPlaylist(
       name_ar:
         channel.name,
 
-
-      /*
-         NEW GROUP ID
-      */
-
       id_groups:
-        id,
-
-
-      /*
-         Group names
-      */
+        String(groupId),
 
       groups_name_en:
         group.nameEn,
 
       groups_name_ar:
         group.nameAr,
-
-
-      /*
-         Group logos
-      */
 
       groups_main_icon:
         LOGO,
@@ -1083,14 +855,8 @@ function readPlaylist(
       groups_mobile_logo:
         LOGO,
 
-
       groups_link:
         '',
-
-
-      /*
-         Channel logos
-      */
 
       logo:
         channel.logo,
@@ -1106,7 +872,7 @@ function readPlaylist(
 
 
       /*
-         Main stream
+       Main stream
       */
 
       link:
@@ -1114,7 +880,7 @@ function readPlaylist(
 
 
       /*
-         Compatibility
+       Compatibility
       */
 
       link2:
@@ -1125,7 +891,7 @@ function readPlaylist(
 
 
       /*
-         ALL QUALITIES
+       All qualities
       */
 
       qualities:
@@ -1133,7 +899,7 @@ function readPlaylist(
 
 
       /*
-         Metadata
+       Metadata
       */
 
       group_title:
@@ -1142,13 +908,12 @@ function readPlaylist(
       tvg_id:
         channel.tvg_id,
 
-
       quality_count:
         channel.qualities.length,
 
 
       /*
-         Current quality
+       Current quality
       */
 
       current_quality:
@@ -1158,27 +923,25 @@ function readPlaylist(
 
 
       /*
-         Current URL
+       Current URL
       */
 
       stream_url:
         link
-
     });
 
 
     channelNumber++;
-
   }
 
 
   console.log(
-    `Group ${id} - ${group.nameEn} loaded: ${channels.length} channels`
+    `Group ${groupId} loaded: ${channels.length} channels`
   );
 
 
   /*
-     Debug
+   Debug
   */
 
   channels.forEach(
@@ -1186,14 +949,6 @@ function readPlaylist(
 
       console.log(
         `[CHANNEL] ${channel.name_en}`
-      );
-
-      console.log(
-        `  id: ${channel.id}`
-      );
-
-      console.log(
-        `  id_groups: ${channel.id_groups}`
       );
 
       console.log(
@@ -1212,9 +967,10 @@ function readPlaylist(
       );
 
       console.log(
-        `  count: ${channel.quality_count}`
+        `  count: ${
+          channel.quality_count
+        }`
       );
-
     }
   );
 
@@ -1239,116 +995,57 @@ function success(data) {
 
     data:
       data
-
   };
 }
 
 
 /* =========================================================
    GET GROUPS
-   الترتيب مثبت بواسطة GROUP_ORDER
 ========================================================= */
 
 function getGroups() {
 
-  return GROUP_ORDER
-    .filter(
-      id =>
-        GROUPS[id]
-    )
-    .map(
-      id => {
-
-        const group =
-          GROUPS[id];
-
-
-        return {
-
-          /*
-             ID الجديد
-          */
-
-          id:
-            id,
-
-
-          name_en:
-            group.nameEn,
-
-          name_ar:
-            group.nameAr,
-
-
-          logo:
-            LOGO,
-
-          mobile_logo:
-            LOGO,
-
-          main_icon:
-            LOGO,
-
-          sub_icon:
-            LOGO,
-
-
-          link:
-            '',
-
-
-          Maintenance:
-            '0'
-
-        };
-
-      }
-    );
-}
-
-
-/* =========================================================
-   GET ALL CHANNELS
-   بنفس ترتيب الأقسام
-========================================================= */
-
-function getAllChannels() {
-
-  const allChannels = [];
-
-
   /*
-     مهم:
-     نقرأ الأقسام بواسطة GROUP_ORDER
-     وليس Object.keys فقط.
+   Object.entries يحافظ على ترتيب
+   GROUPS أعلاه
   */
 
-  for (
-    const id
-    of GROUP_ORDER
-  ) {
+  return Object.entries(
+    GROUPS
+  ).map(
+    ([id, group]) => {
 
-    if (!GROUPS[id]) {
-      continue;
+      return {
+
+        id:
+          id,
+
+        name_en:
+          group.nameEn,
+
+        name_ar:
+          group.nameAr,
+
+        logo:
+          LOGO,
+
+        mobile_logo:
+          LOGO,
+
+        main_icon:
+          LOGO,
+
+        sub_icon:
+          LOGO,
+
+        link:
+          '',
+
+        Maintenance:
+          '0'
+      };
     }
-
-
-    const channels =
-      readPlaylist(id);
-
-
-    /*
-       إضافة القنوات بنفس ترتيب الأقسام
-    */
-
-    allChannels.push(
-      ...channels
-    );
-
-  }
-
-
-  return allChannels;
+  );
 }
 
 
@@ -1376,7 +1073,7 @@ module.exports = (
 
 
   /*
-     GROUP ID
+   GROUP ID
   */
 
   const groupId =
@@ -1389,7 +1086,7 @@ module.exports = (
 
 
   /*
-     CHANNEL ID
+   CHANNEL ID
   */
 
   const channelId =
@@ -1399,7 +1096,7 @@ module.exports = (
 
 
   /*
-     HEADERS
+   HEADERS
   */
 
   res.setHeader(
@@ -1429,7 +1126,7 @@ module.exports = (
 
 
   /*
-     OPTIONS
+   OPTIONS
   */
 
   if (
@@ -1439,16 +1136,69 @@ module.exports = (
     return res
       .status(200)
       .end();
-
   }
 
 
   try {
 
-    /* =====================================================
-       /api
-       بدون group = جميع الأقسام
-    ===================================================== */
+    /*
+     /api?group=1
+    */
+
+    if (
+      pathname === '/api' &&
+      groupId
+    ) {
+
+      if (
+        !GROUPS[
+          String(groupId)
+        ]
+      ) {
+
+        return res
+          .status(400)
+          .json({
+
+            api_status:
+              400,
+
+            api_message:
+              'Invalid group',
+
+            data:
+              []
+          });
+      }
+
+
+      const channels =
+        readPlaylist(
+          groupId
+        );
+
+
+      return res
+        .status(200)
+        .json(
+          success(channels)
+        );
+    }
+
+
+    /*
+     /api
+     ALL GROUPS
+     
+     ترتيب الأقسام:
+     
+     1 TOD BEIN SPORTS
+     2 BEIN SPORTS
+     3 ALWAN MOOM SPORT
+     4 BEIN SPORTS MOOM
+     5 FADJR MOOM SPORT
+     6 ALKASS SPORTS
+    */
 
     if (
       pathname === '/api' &&
@@ -1462,63 +1212,12 @@ module.exports = (
             getGroups()
           )
         );
-
     }
 
 
-    /* =====================================================
-       /api?group=1
-       /api?id_groups=1
-    ===================================================== */
-
-    if (
-      pathname === '/api' &&
-      groupId
-    ) {
-
-      const id =
-        String(groupId);
-
-
-      if (!GROUPS[id]) {
-
-        return res
-          .status(400)
-          .json({
-
-            api_status:
-              400,
-
-            api_message:
-              'Invalid group',
-
-            data:
-              []
-
-          });
-
-      }
-
-
-      const channels =
-        readPlaylist(id);
-
-
-      return res
-        .status(200)
-        .json(
-          success(
-            channels
-          )
-        );
-
-    }
-
-
-    /* =====================================================
-       /api/groups
-       جميع الأقسام بالترتيب الثابت
-    ===================================================== */
+    /*
+     /api/groups
+    */
 
     if (
       pathname === '/api/groups'
@@ -1531,51 +1230,26 @@ module.exports = (
             getGroups()
           )
         );
-
     }
 
 
-    /* =====================================================
-       /api/channels
-       
-       بدون group:
-       جميع القنوات بالترتيب
-
-       مع group:
-       قنوات القسم المطلوب
-    ===================================================== */
+    /*
+     /api/channels?group=1
+    */
 
     if (
       pathname === '/api/channels'
     ) {
 
-      /*
-         إذا لم يرسل group
-         نرجع جميع القنوات
-      */
-
-      if (!groupId) {
-
-        const channels =
-          getAllChannels();
-
-
-        return res
-          .status(200)
-          .json(
-            success(
-              channels
-            )
-          );
-
-      }
-
-
       const id =
-        String(groupId);
+        groupId || '1';
 
 
-      if (!GROUPS[id]) {
+      if (
+        !GROUPS[
+          String(id)
+        ]
+      ) {
 
         return res
           .status(400)
@@ -1589,33 +1263,27 @@ module.exports = (
 
             data:
               []
-
           });
-
       }
 
 
       const channels =
-        readPlaylist(id);
+        readPlaylist(
+          id
+        );
 
 
       return res
         .status(200)
         .json(
-          success(
-            channels
-          )
+          success(channels)
         );
-
     }
 
 
-    /* =====================================================
-       /api/channel?id_channel=1_1
-       
-       يبحث في الأقسام بالترتيب:
-       1 → 2 → 3 → 4 → 5 → 6
-    ===================================================== */
+    /*
+     /api/channel?id_channel=1_1
+    */
 
     if (
       pathname === '/api/channel'
@@ -1628,7 +1296,6 @@ module.exports = (
           .json(
             success([])
           );
-
       }
 
 
@@ -1637,45 +1304,25 @@ module.exports = (
 
 
       /*
-         إذا كان ID بالشكل:
-         1_1
-         2_5
-         3_2
-         إلخ
-
-         نستخرج Group ID مباشرة.
+       يبحث بالترتيب:
+       1 → 2 → 3 → 4 → 5 → 6
       */
 
-      const channelParts =
-        String(channelId)
-          .split('_');
-
-
-      const requestedGroupId =
-        channelParts[0];
-
-
-      /*
-         إذا كان Group ID صالح
-         نبحث فيه أولاً.
-      */
-
-      if (
-        GROUPS[
-          requestedGroupId
-        ]
+      for (
+        const id
+        of Object.keys(GROUPS)
       ) {
 
         const channels =
           readPlaylist(
-            requestedGroupId
+            id
           );
 
 
         const found =
           channels.find(
-            channel =>
-              channel.id ===
+            x =>
+              x.id ===
               channelId
           );
 
@@ -1685,46 +1332,8 @@ module.exports = (
           channel =
             found;
 
+          break;
         }
-
-      }
-
-
-      /*
-         Fallback:
-         البحث في كل الأقسام
-      */
-
-      if (!channel) {
-
-        for (
-          const id
-          of GROUP_ORDER
-        ) {
-
-          const channels =
-            readPlaylist(id);
-
-
-          const found =
-            channels.find(
-              x =>
-                x.id ===
-                channelId
-            );
-
-
-          if (found) {
-
-            channel =
-              found;
-
-            break;
-
-          }
-
-        }
-
       }
 
 
@@ -1737,13 +1346,12 @@ module.exports = (
               : []
           )
         );
-
     }
 
 
-    /* =====================================================
-       EMPTY ENDPOINTS
-    ===================================================== */
+    /*
+     Empty endpoints
+    */
 
     if (
 
@@ -1769,13 +1377,12 @@ module.exports = (
         .json(
           success([])
         );
-
     }
 
 
-    /* =====================================================
-       NOT FOUND
-    ===================================================== */
+    /*
+     NOT FOUND
+    */
 
     return res
       .status(404)
@@ -1789,9 +1396,7 @@ module.exports = (
 
         data:
           []
-
       });
-
 
   } catch (error) {
 
@@ -1813,9 +1418,6 @@ module.exports = (
 
         data:
           []
-
       });
-
   }
-
 };
